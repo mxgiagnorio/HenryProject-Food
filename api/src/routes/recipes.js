@@ -163,7 +163,7 @@ router.post("/", async (req, res, next) => {
     const dietsDb = await Diets.findAll({
       where: { name: diets },
     });
-    //le agregamos el genero a la nueva receta
+    //le agregamos la dieta a la nueva receta
     recipeCreate.addDiets(dietsDb);
     res.json(recipeCreate);
   } catch (error) {
