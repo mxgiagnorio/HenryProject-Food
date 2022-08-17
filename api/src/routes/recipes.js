@@ -42,6 +42,7 @@ const getApiInfo = async () => {
       image: el.image,
       healthScore: el.healthScore,
       summary: el.summary,
+      diets: el.diets?.map((element) => element),
       steps:
         el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
           ? el.analyzedInstructions[0].steps
@@ -121,6 +122,7 @@ router.get("/", async (req, res) => {
         image: el.image,
         healthScore: el.healthScore,
         summary: el.summary,
+        diets: el.diets?.map((element) => element),
         steps:
           el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
             ? el.analyzedInstructions[0].steps

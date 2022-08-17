@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     "paleo",
     "primal",
     "low fodmap",
-    "whole360",
+    "whole30",
   ];
   try {
     if (dietsDb) {
