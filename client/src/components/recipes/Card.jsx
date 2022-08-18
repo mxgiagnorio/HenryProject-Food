@@ -5,7 +5,7 @@ import "./Card.css";
 export default function Card({ name, image, diets, id }) {
   return (
     <div className="container">
-      <div key={id}>
+      <div className="card" key={id}>
         <img className="img" src={image} alt="Not found" />
         <h3>{name}</h3>
         <p>{diets}</p>

@@ -1,0 +1,18 @@
+.pagination {
+  display: inline-block;
+  padding: 0;
+  margin-top: 25px;
+}
+
+.btn {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  border: 1px solid #370617;
+  margin: 0 4px;
+}
+
+.pagination btn:focus {
+  background-color: black;
+  color: azure;
+}

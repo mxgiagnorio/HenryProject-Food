@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background: #bcaec5;
+}
+
+.cardContainer {
+  height: 400px;
+  width: 350px;
+}
