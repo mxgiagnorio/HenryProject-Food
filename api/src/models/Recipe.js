@@ -6,9 +6,9 @@ module.exports = (sequelize) => {
   sequelize.define("recipe", {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4,
     },
     name: {
       type: DataTypes.STRING,
@@ -20,10 +20,6 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.TEXT,
-      allowNull: true,
-    },
-    score: {
-      type: DataTypes.INTEGER,
       allowNull: true,
     },
     healthScore: {

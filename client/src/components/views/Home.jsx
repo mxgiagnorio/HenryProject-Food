@@ -4,6 +4,7 @@ import { getAllRecipes } from "../../redux/actions";
 import Card from "../recipes/Card";
 import "./Home.css";
 import Paginated from "../paginated/Paginated";
+import Navbar from "../navbar/Navbar";
 
 export default function Home() {
   const allRecipes = useSelector((state) => state.allRecipes);
@@ -24,25 +25,30 @@ export default function Home() {
   }, [dispatch]);
 
   return (
-    <div className="container">
-      {currentRecipe?.map((element) => {
-        return (
-          <div className="cardContainer" key={element.id}>
-            <Card
-              id={element.id}
-              name={element.name}
-              image={element.image}
-              diets={element.diets?.map((diet) => diet).join(", ")}
-            />
-          </div>
-        );
-      })}
-      <Paginated
-        recipesPerPage={recipesPerPage}
-        allRecipes={allRecipes.length}
-        paginated={paginated}
-      />
-      : <h2>Loading</h2>
+    <div>
+      <div className="navbar">
+        <Navbar />
+      </div>
+      <div className="container">
+        {currentRecipe?.map((element) => {
+          return (
+            <div className="cardContainer" key={element.id}>
+              <Card
+                id={element.id}
+                name={element.name}
+                image={element.image}
+                diets={element.diets?.map((diet) => diet).join(", ")}
+              />
+            </div>
+          );
+        })}
+        <Paginated
+          recipesPerPage={recipesPerPage}
+          allRecipes={allRecipes.length}
+          paginated={paginated}
+        />
+        : <h2>Loading</h2>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Card.css";
 
 export default function Card({ name, image, diets, id }) {
@@ -10,9 +10,11 @@ export default function Card({ name, image, diets, id }) {
         <h3>{name}</h3>
         <p>{diets}</p>
         <div>
-          <NavLink to={`/recipe/${id}`}>
-            <span>Details</span>
-          </NavLink>
+          <button>
+            <Link to={`/recipe/${id}`}>
+              <span>Details</span>
+            </Link>
+          </button>
         </div>
       </div>
     </div>

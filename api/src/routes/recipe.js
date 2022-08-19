@@ -21,13 +21,14 @@ router.get("/:idRecipe", async (req, res) => {
         image: searchIdInApi.data.image,
         healthScore: searchIdInApi.data.healthScore,
         summary: searchIdInApi.data.summary,
+        // types: searchIdInApi.dishTypes?.map((element) => element),
         diets: searchIdInApi.data.diets?.map((el) => el),
         steps:
           searchIdInApi.data.analyzedInstructions[0] &&
           searchIdInApi.data.analyzedInstructions[0].steps
             ? searchIdInApi.data.analyzedInstructions[0].steps
                 .map((item) => item.step)
-                .join(" \n")
+                .join(" ")
             : "",
       };
       return res.status(200).send(response);
