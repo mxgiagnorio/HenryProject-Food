@@ -2,6 +2,7 @@ import axios from "axios";
 export const GET_ALL_RECIPES = "GET_ALL_RECIPES";
 export const GET_ID_RECIPE = "GET_ID_RECIPE";
 export const GET_NAMES_RECIPES = "GET_NAME_RECIPES";
+export const GET_FILTER_DIETS = "GET_FILTER_DIETS";
 
 export const getAllRecipes = () => {
   return async function (dispatch) {
@@ -11,6 +12,14 @@ export const getAllRecipes = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const filterbyDiets = (payload) => {
+  console.log(payload);
+  return {
+    type: GET_FILTER_DIETS,
+    payload,
   };
 };
 
