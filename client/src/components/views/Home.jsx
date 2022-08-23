@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRecipes, filterbyDiets } from "../../redux/actions";
+import {
+  getAllRecipes,
+  filterbyDiets,
+  filterCreated,
+  sortFilter,
+  getAllDiets,
+  sortByHealthScore,
+} from "../../redux/actions";
 import Card from "../recipes/Card";
 import "./Home.css";
 import Paginated from "../paginated/Paginated";
@@ -8,8 +15,9 @@ import Navbar from "../navbar/Navbar";
 
 export default function Home() {
   const allRecipes = useSelector((state) => state.allRecipes);
+  const allDiets = useSelector((state) => state.allDiets);
   const dispatch = useDispatch();
-
+  const [order, setOrder] = useState(" ");
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage, setRecipesPerPage] = useState(9);
   const lastRecipeInPage = currentPage * recipesPerPage;
@@ -19,16 +27,37 @@ export default function Home() {
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
   useEffect(() => {
     dispatch(getAllRecipes());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllDiets());
   }, [dispatch]);
 
   function handlerFilterDiets(e) {
     e.preventDefault();
     dispatch(filterbyDiets(e.target.value));
+    setCurrentPage(1);
+    setOrder(e.target.value);
   }
 
+  function handlerFilterCreated(e) {
+    e.preventDefault();
+    dispatch(filterCreated(e.target.value));
+  }
+  function handlerHealthScore(e) {
+    e.preventDefault();
+    dispatch(sortByHealthScore(e.target.value));
+    setCurrentPage(1);
+    setOrder(`${e.target.value}`);
+  }
+  function handlerSort(e) {
+    e.preventDefault();
+    dispatch(sortFilter(e.target.value));
+    setCurrentPage(1);
+    setOrder(`${e.target.value}`);
+  }
   return (
     <div>
       <div className="navbar">
@@ -36,50 +65,43 @@ export default function Home() {
       </div>
       <div className="filter-container">
         <div className="order">
-          <select defaultValue="Filter by Order">
-            <option disabled>Filter by Order</option>
-            <option key="up" value="up">
-              Upward
-            </option>
-            <option key="down" value="down">
-              Descendant
-            </option>
+          <select onChange={(e) => handlerSort(e)}>
+            <option disabled>Order</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
           </select>
         </div>
 
         <div className="filterType">
-          <select onChange={(e) => handlerFilterDiets(e)}>
-            <option value="All diets">All Diets</option>
-            <option value="vegan">Vegan</option>
-            <option value="lacto ovo vegetarian">Lacto ovo vegetarian</option>
-            <option value="dairy free">Dairy free</option>
-            <option value="gluten free">Gluten free</option>
-            <option value="paleolithic">Paleolithic</option>
-            <option value="primal">Primal</option>
-            <option value="whole 30">Whole 30</option>
-            <option value="pescatarian">Pescatarian</option>
-            <option value="ketogenic">Ketogenic</option>
-            <option value="fodmap friendly">Fodmap friendly</option>
+          <select
+            defaultValue="filter by Diet"
+            onChange={(e) => handlerFilterDiets(e)}
+          >
+            <option disabled>Order by type of diet</option>
+            {allDiets?.map((diet) => (
+              <option key={diet.id} value={diet.name}>
+                {diet.name}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="filterScore">
-          <select defaultValue="Order by score">
-            <option disabled>Order by score</option>
-            <option key="SSc" value="SSc">
-              Spooncular Score
-            </option>
-            <option key="HSc" value="HSc">
-              health Score
-            </option>
+          <select
+            onChange={(e) => handlerHealthScore(e)}
+            defaultValue="Order by score"
+          >
+            <option disabled>Order by Health Score</option>
+            <option value="up">0-99</option>
+            <option value="down">99-0</option>
           </select>
         </div>
         <div className="filterRecipes">
-          <select>
+          <select onChange={(e) => handlerFilterCreated(e)}>
             <option disabled>Filter</option>
-            <option value="all">All</option>
-            <option value="created">Created</option>
-            <option value="api">API</option>
+            <option value="All">All</option>
+            <option value="Created">Created</option>
+            <option value="API">API</option>
           </select>
         </div>
       </div>

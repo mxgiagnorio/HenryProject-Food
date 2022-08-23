@@ -1,11 +1,15 @@
 import { GET_ALL_RECIPES } from "../actions";
+import { GET_ALL_DIETS } from "../actions";
 import { GET_ID_RECIPE } from "../actions";
 import { GET_NAMES_RECIPES } from "../actions";
 import { GET_FILTER_DIETS } from "../actions";
-
+import { GET_FILTER_CREATED } from "../actions";
+import { GET_SORT_FILTER } from "../actions";
+import { GET_HEALTHSCORE_SORT } from "../actions";
 let initialState = {
   allRecipes: [],
   recipesFilters: [],
+  allDiets: [],
   idRecipe: [],
   namesRecipes: [],
 };
@@ -17,16 +21,112 @@ function rootReducer(state = initialState, action) {
         allRecipes: action.payload,
         recipesFilters: action.payload,
       };
-    case GET_FILTER_DIETS:
-      const infoRecipes = state.recipesFilters;
-      const dietsFiltered =
-        action.payload === "All diets"
-          ? infoRecipes
-          : infoRecipes.filter((element) => element.diets === action.payload);
+    case GET_ALL_DIETS:
       return {
         ...state,
-        allRecipes: dietsFiltered,
+        allDiets: action.payload,
       };
+    case GET_HEALTHSCORE_SORT:
+      let sortHealtScore =
+        action.payload === "up"
+          ? state.allRecipes.sort(function (a, b) {
+              if (a.healthScore > b.healthScore) {
+                return 1;
+              }
+              if (b.healthScore > a.healthScore) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.allRecipes.sort(function (a, b) {
+              if (a.healthScore > b.healthScore) {
+                return -1;
+              }
+              if (b.healthScore > a.healthScore) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        allRecipes: sortHealtScore,
+      };
+    case GET_FILTER_DIETS:
+      const infoRecipes = state.recipesFilters;
+
+      const filtByDiets =
+        action.payload === "Filter by Diet"
+          ? state.recipesFilters
+          : infoRecipes.filter((recipe) => {
+              // console.log(recipe.diets.length);
+              if (recipe.diets.length) {
+                if (recipe.diets.find((element) => element === action.payload))
+                  return recipe;
+              }
+
+              if (
+                action.payload === "vegetarian" &&
+                recipe.hasOwnProperty("vegetarian") &&
+                recipe.vegetarian === true
+              )
+                return recipe;
+
+              if (
+                action.payload === "dairyFree" &&
+                recipe.hasOwnProperty("dairyFree") &&
+                recipe.dairyFree === true
+              )
+                return recipe;
+            });
+      return {
+        ...state,
+        recipes: filtByDiets,
+      };
+    // case GET_FILTER_DIETS:
+    //   const infoRecipes = state.recipesFilters;
+    //   const dietsFiltered =
+    //     action.payload === "All diets"
+    //       ? infoRecipes
+    //       : infoRecipes.filter((element) => element.diets === action.payload);
+    //   return {
+    //     ...state,
+    //     allRecipes: dietsFiltered,
+    //   };
+    case GET_FILTER_CREATED:
+      const dietsCreated =
+        action.payload === "Created"
+          ? state.recipesFilters.filter((element) => element.createdInDb)
+          : state.recipesFilters.filter((element) => !element.createdInDb);
+      return {
+        ...state,
+        allRecipes: dietsCreated,
+      };
+    case GET_SORT_FILTER:
+      let sortArr =
+        action.payload === "az"
+          ? state.allRecipes.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+              }
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return -1;
+              }
+              return 0;
+            })
+          : state.allRecipes.sort(function (a, b) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return -1;
+              }
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        allRecipes: sortArr,
+      };
+
     case GET_ID_RECIPE:
       return {
         ...state,

@@ -54,9 +54,9 @@ router.get("/", async (req, res) => {
   const apiDiets = await apiInfo.data.results.map((d) => d.diets);
 
   const dietArr = [];
-  apiDiets.map((ele) => {
-    for (let i = 0; i < ele.length; i++) {
-      dietArr.push(ele[i]);
+  apiDiets.map((element) => {
+    for (let i = 0; i < element.length; i++) {
+      dietArr.push(element[i]);
     }
   });
 
