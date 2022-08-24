@@ -17,12 +17,25 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const server = require("./src/app.js");
+const { conn, Diets } = require("./src/db.js");
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log("%s listening at 3001");
+    const dietas = [
+      "gluten free",
+      "paleolithic",
+      "vegetarian",
+      "lacto ovo vegetarian",
+      "vegan",
+      "pescatarian",
+      "primal",
+      "whole 30",
+      "fodmap friendly",
+      "dairyFree",
+    ];
+    dietas.forEach(async (element) => await Diets.create({ name: element })); // eslint-disable-line no-console
   });
 });

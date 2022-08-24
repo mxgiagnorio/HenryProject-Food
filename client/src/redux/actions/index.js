@@ -1,6 +1,7 @@
 import axios from "axios";
 export const GET_ALL_RECIPES = "GET_ALL_RECIPES";
 export const GET_ALL_DIETS = "GET_ALL_DIETS";
+export const POST_RECIPES = "POST_RECIPES";
 export const GET_ID_RECIPE = "GET_ID_RECIPE";
 export const GET_NAMES_RECIPES = "GET_NAME_RECIPES";
 export const GET_FILTER_DIETS = "GET_FILTER_DIETS";
@@ -21,8 +22,22 @@ export const getAllRecipes = () => {
 export const getAllDiets = () => {
   return async function (dispatch) {
     try {
-      const Info = await axios.get("http://localhost:3001/api/diets");
-      return dispatch({ type: GET_ALL_DIETS, payload: Info.data });
+      const info = await axios.get("http://localhost:3001/api/diets");
+      console.log(info);
+      return dispatch({ type: GET_ALL_DIETS, payload: info.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postRecipe = (payload) => {
+  return async function (dispatch) {
+    try {
+      const Info = await axios.post(
+        "http://localhost:3001/api/recipes",
+        payload
+      );
     } catch (error) {
       console.log(error);
     }

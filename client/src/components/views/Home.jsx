@@ -38,8 +38,6 @@ export default function Home() {
   function handlerFilterDiets(e) {
     e.preventDefault();
     dispatch(filterbyDiets(e.target.value));
-    setCurrentPage(1);
-    setOrder(e.target.value);
   }
 
   function handlerFilterCreated(e) {
@@ -92,8 +90,8 @@ export default function Home() {
             defaultValue="Order by score"
           >
             <option disabled>Order by Health Score</option>
-            <option value="up">0-99</option>
-            <option value="down">99-0</option>
+            <option value="up">0-100</option>
+            <option value="down">100-0</option>
           </select>
         </div>
         <div className="filterRecipes">

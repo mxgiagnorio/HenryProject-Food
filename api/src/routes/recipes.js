@@ -6,31 +6,6 @@ const { Op } = require("sequelize");
 
 const router = Router();
 
-// const getApiInfo = async () => {
-//   try {
-//     const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`;
-//     const result = await axios.get(apiUrl);
-//     result.data?.results.map((e) => {
-//       return {
-//         id: e.id,
-//         title: e.title,
-//         summary: e.summary,
-//         image: e.image,
-//         score: e.spoonacularScore,
-//         healthScore: e.healthScore,
-//         steps:
-//           e.analyzedInstructions[0] && e.analyzedInstructions[0].steps
-//             ? e.analyzedInstructions[0].steps
-//                 .map((item) => item.step)
-//                 .join(" \n")
-//             : "",
-//       };
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 const getApiInfo = async () => {
   const URL = await axios.get(
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
@@ -54,31 +29,6 @@ const getApiInfo = async () => {
   });
   return response;
 };
-
-// const getApiInfo = async () => {
-//   const recipes = [];
-//   const URL = await axios.get(
-//     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`
-//   );
-//   URL.data.results.map((el) => {
-//     recipes.push({
-//       id: el.id,
-//       title: el.title,
-//       image: el.image,
-//       score: el.spoonacularScore,
-//       healthScore: el.healthScore,
-//       summary: el.summary,
-//       steps:
-//         el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
-//           ? el.analyzedInstructions[0].steps
-//               .map((item) => item.step)
-//               .join(" \n")
-//           : "",
-//     });
-//   });
-
-//   return recipes;
-// };
 
 const getDbInfo = async () => {
   return await Recipe.findAll({
