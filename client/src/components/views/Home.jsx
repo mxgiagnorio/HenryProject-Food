@@ -56,6 +56,19 @@ export default function Home() {
     setCurrentPage(1);
     setOrder(`${e.target.value}`);
   }
+  // function handleClick(e) {
+  //   e.preventDefault();
+  //   dispatch(getAllRecipes());
+  // }
+  {
+    /* <button
+    onClick={(e) => {
+      handleClick(e);
+    }}
+  >
+    Reset filters
+  </button> */
+  }
   return (
     <div>
       <div className="navbar">
@@ -64,23 +77,9 @@ export default function Home() {
       <div className="filter-container">
         <div className="order">
           <select onChange={(e) => handlerSort(e)}>
-            <option disabled>Order</option>
+            <option value="reset">Order by default</option>
             <option value="az">A-Z</option>
             <option value="za">Z-A</option>
-          </select>
-        </div>
-
-        <div className="filterType">
-          <select
-            defaultValue="filter by Diet"
-            onChange={(e) => handlerFilterDiets(e)}
-          >
-            <option disabled>Order by type of diet</option>
-            {allDiets?.map((diet) => (
-              <option key={diet.id} value={diet.name}>
-                {diet.name}
-              </option>
-            ))}
           </select>
         </div>
 
@@ -89,11 +88,22 @@ export default function Home() {
             onChange={(e) => handlerHealthScore(e)}
             defaultValue="Order by score"
           >
-            <option disabled>Order by Health Score</option>
+            <option value="reset">Health Score by default</option>
             <option value="up">0-100</option>
             <option value="down">100-0</option>
           </select>
         </div>
+        <div className="filterType">
+          <select onChange={(e) => handlerFilterDiets(e)}>
+            <option value="All Diets"> All Diets</option>
+            {allDiets?.map((diet) => (
+              <option key={diet.id} value={diet.name}>
+                {diet.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="filterRecipes">
           <select onChange={(e) => handlerFilterCreated(e)}>
             <option disabled>Filter</option>
@@ -121,7 +131,6 @@ export default function Home() {
           allRecipes={allRecipes.length}
           paginated={paginated}
         />
-        : <h2>Loading</h2>
       </div>
     </div>
   );

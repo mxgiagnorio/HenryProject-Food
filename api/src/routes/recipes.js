@@ -73,7 +73,7 @@ router.get("/", async (req, res) => {
         image: el.image,
         healthScore: el.healthScore,
         summary: el.summary,
-        types: el.dishTypes?.map((element) => element),
+        types: el.dishTypes.join("-"),
         diets: el.diets?.map((element) => element),
         steps:
           el.analyzedInstructions[0] && el.analyzedInstructions[0].steps

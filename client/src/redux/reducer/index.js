@@ -31,31 +31,40 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
-    case GET_HEALTHSCORE_SORT:
-      let sortHealtScore =
-        action.payload === "up"
-          ? state.allRecipes.sort(function (a, b) {
-              if (a.healthScore > b.healthScore) {
-                return 1;
-              }
-              if (b.healthScore > a.healthScore) {
-                return -1;
-              }
-              return 0;
-            })
-          : state.allRecipes.sort(function (a, b) {
-              if (a.healthScore > b.healthScore) {
-                return -1;
-              }
-              if (b.healthScore > a.healthScore) {
-                return 1;
-              }
-              return 0;
-            });
-      return {
-        ...state,
-        allRecipes: sortHealtScore,
-      };
+    // case GET_HEALTHSCORE_SORT:
+    //   let sortHealtScore =
+    //     action.payload === "up"
+    //       ? state.allRecipes.sort(function (a, b) {
+    //           if (a.healthScore > b.healthScore) {
+    //             return 1;
+    //           }
+    //           if (b.healthScore > a.healthScore) {
+    //             return -1;
+    //           }
+    //           return 0;
+    //         })
+    //       : action.payload === "down"? state.allRecipes.sort(function (a, b) {
+    //           if (a.healthScore > b.healthScore) {
+    //             return -1;
+    //           }
+    //           if (b.healthScore > a.healthScore) {
+    //             return 1;
+    //           }
+    //           return 0;
+    //         });
+    //         : state.allRecipes.sort(function (a, b) {
+    //           if (a.id > b.id) {
+    //             return -1;
+    //           }
+    //           if (b.id > a.id) {
+    //             return 1;
+    //           }
+    //           return 0;
+    //         });
+    //   return {
+    //     ...state,
+    //     allRecipes: sortHealtScore,
+    //   };
     // case GET_FILTER_DIETS:
     //   const infoRecipes = state.recipesFilters;
 
@@ -90,7 +99,7 @@ function rootReducer(state = initialState, action) {
     case GET_FILTER_DIETS:
       const info = state.recipesFilters;
       const dietsFiltered =
-        action.payload === "Filter by Diet"
+        action.payload === "All Diets"
           ? info
           : info.filter((element) => element.diets.includes(action.payload));
       return {
@@ -106,10 +115,20 @@ function rootReducer(state = initialState, action) {
         ...state,
         allRecipes: dietsCreated,
       };
+
+    // case GET_SORT_FILTER:
+    // const infoSort = state.allRecipes
+    // let sortArr = action.payload === "default" ? infoSort : action.payload === "az" infoSort.sort(function(a,b){
+
+    // })
+    // return {
+    //       ...state,
+    //        allRecipes: sortArr,
+    //      };
     case GET_SORT_FILTER:
       let sortArr =
         action.payload === "az"
-          ? state.allRecipes.sort(function (a, b) {
+          ? state.recipesFilters.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
@@ -118,11 +137,21 @@ function rootReducer(state = initialState, action) {
               }
               return 0;
             })
-          : state.allRecipes.sort(function (a, b) {
+          : action.payload === "za"
+          ? state.recipesFilters.sort(function (a, b) {
               if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
               if (b.name.toLowerCase() > a.name.toLowerCase()) {
+                return 1;
+              }
+              return 0;
+            })
+          : state.allRecipes.sort(function (a, b) {
+              if (a.id > b.id) {
+                return -1;
+              }
+              if (b.id > a.id) {
                 return 1;
               }
               return 0;
@@ -131,6 +160,87 @@ function rootReducer(state = initialState, action) {
         ...state,
         allRecipes: sortArr,
       };
+    case GET_HEALTHSCORE_SORT:
+      let arrHealth =
+        action.payload === "up"
+          ? state.recipesFilters.sort(function (a, b) {
+              if (a.healthScore > b.healthScore) {
+                return 1;
+              }
+              if (b.healthScore > a.healthScore) {
+                return -1;
+              }
+              return 0;
+            })
+          : action.payload === "down"
+          ? state.recipesFilters.sort(function (a, b) {
+              if (a.healthScore > b.healthScore) {
+                return -1;
+              }
+              if (b.healthScore > a.healthScore) {
+                return 1;
+              }
+              return 0;
+            })
+          : state.allRecipes.sort(function (a, b) {
+              if (a.id > b.id) {
+                return -1;
+              }
+              if (b.id > a.id) {
+                return 1;
+              }
+              return 0;
+            });
+      return {
+        ...state,
+        allRecipes: arrHealth,
+      };
+
+    // case GET_SORT_FILTER:
+    //   const infoSort = state.allRecipes;
+    //   const sortArr =
+    //     action.payload === "az"
+    //       ? infoSort.sort(function (a, b) {
+    //           if (a.name.toLowerCase() > b.name.toLowerCase()) {
+    //             return 1;
+    //           }
+    //           if (b.name.toLowerCase() > a.name.toLowerCase()) {
+    //             return -1;
+    //           }
+    //           return 0;
+    //         })
+    //       : infoSort.sort(function (a, b) {
+    //           if (a.name.toLowerCase() > b.name.toLowerCase()) {
+    //             return -1;
+    //           }
+    //           if (b.name.toLowerCase() > a.name.toLowerCase()) {
+    //             return 1;
+    //           }
+    //           return 0;
+    //         });
+    //   action.payload === "up"
+    //     ? infoSort.sort(function (a, b) {
+    //         if (a.healthScore > b.healthScore) {
+    //           return 1;
+    //         }
+    //         if (b.healthScore > a.healthScore) {
+    //           return -1;
+    //         }
+    //         return 0;
+    //       })
+    //     : infoSort.sort(function (a, b) {
+    //         if (a.healthScore > b.healthScore) {
+    //           return -1;
+    //         }
+    //         if (b.healthScore > a.healthScore) {
+    //           return 1;
+    //         }
+    //         return 0;
+    //       });
+    //   return {
+    //     ...state,
+    //     allRecipes: sortArr,
+    //   };
 
     case GET_ID_RECIPE:
       return {

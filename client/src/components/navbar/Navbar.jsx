@@ -16,7 +16,7 @@ export default function Navbar() {
       <div>
         <SearchBar />
       </div>
-      <Link to="/recipe">
+      <Link to="/recipes">
         <button className="button">New Recipe</button>
       </Link>
     </div>

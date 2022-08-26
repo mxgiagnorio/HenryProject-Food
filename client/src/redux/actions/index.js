@@ -23,7 +23,6 @@ export const getAllDiets = () => {
   return async function (dispatch) {
     try {
       const info = await axios.get("http://localhost:3001/api/diets");
-      console.log(info);
       return dispatch({ type: GET_ALL_DIETS, payload: info.data });
     } catch (error) {
       console.log(error);

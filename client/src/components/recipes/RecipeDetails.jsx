@@ -18,8 +18,22 @@ export default function RecipeDetails() {
       <img src={detail.image} alt="imagen" />
       <div>
         <h4>{detail.name}</h4>
-        <h4>Resumen: {detail.summary}</h4>
+        <h4>
+          Resumen:{detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
+        </h4>
         <h4>Puntaje Saludable: {detail.healthScore}</h4>
+        <span>diet types:</span>{" "}
+        {detail.diets?.map((diet, index) => (
+          <p key={index}>{diet}</p>
+        ))}
+        <div>
+          <span className="thick">Dish types: </span>
+          {detail.types}
+        </div>
+        <div>
+          <span className="thick">Paso a paso: </span>
+          {detail.steps}
+        </div>
       </div>
     </div>
   );
