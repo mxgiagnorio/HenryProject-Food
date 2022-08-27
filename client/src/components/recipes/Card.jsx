@@ -8,7 +8,7 @@ export default function Card({ name, image, diets, id }) {
       <div className="card" key={id}>
         <img className="img" src={image} alt="Not found" />
         <h3>{name}</h3>
-        <p>{diets}</p>
+        <p>{diets.name}</p>
         <div>
           <button>
             <Link to={`/recipe/${id}`}>
@@ -20,3 +20,5 @@ export default function Card({ name, image, diets, id }) {
     </div>
   );
 }
+
+// {recipe.id} id={recipe.idApi ? recipe.idApi : recipe.id}

@@ -8,7 +8,7 @@ const router = Router();
 router.get("/:idRecipe", async (req, res) => {
   const { idRecipe } = req.params;
   try {
-    if (idRecipe.length > 8) {
+    if (idRecipe.length > 9) {
       let searchByPk = await Recipe.findByPk(idRecipe, { include: [Diets] });
       return res.status(200).send(searchByPk);
     } else {

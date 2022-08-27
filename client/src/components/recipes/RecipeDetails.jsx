@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIdRecipe } from "../../redux/actions";
@@ -15,6 +16,10 @@ export default function RecipeDetails() {
 
   return (
     <div>
+      <Link to="/home">
+        <button>volver al home</button>
+      </Link>
+      <br></br>
       <img src={detail.image} alt="imagen" />
       <div>
         <h4>{detail.name}</h4>
@@ -22,12 +27,9 @@ export default function RecipeDetails() {
           Resumen:{detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
         </h4>
         <h4>Puntaje Saludable: {detail.healthScore}</h4>
-        <span>diet types:</span>{" "}
-        {detail.diets?.map((diet, index) => (
-          <p key={index}>{diet}</p>
-        ))}
+        <span>diet types:</span> {detail.diets?.map((d) => d.name).join(",")}
         <div>
-          <span className="thick">Dish types: </span>
+          <span className="thick"></span>
           {detail.types}
         </div>
         <div>
