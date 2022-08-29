@@ -5,20 +5,16 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div>
-      <div>
-        <img
-          className="logo"
-          src="https://i.pinimg.com/564x/77/0a/18/770a18bdd112d8f8ea0d821c4d8fc208.jpg"
-          alt="Logo"
-        />
-      </div>
-      <div>
+    <nav>
+      <div className="navContainer">
+        <h1 className="navTitle">H E N R Y F O O D S</h1>
         <SearchBar />
+        <div>
+          <Link to="/recipes">
+            <button className="btnCreate">Create your recipe</button>
+          </Link>
+        </div>
       </div>
-      <Link to="/recipes">
-        <button className="button">New Recipe</button>
-      </Link>
-    </div>
+    </nav>
   );
 }

@@ -1,0 +1,106 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f0e6;
+  min-height: 100vh;
+}
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+.infoSummary {
+  padding: 0.5rem 0.5rem;
+  height: 5px;
+  width: 20vw;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+.steps {
+  margin-right: 7px;
+}
+.summary {
+  margin-left: -27px;
+}
+.healthScore {
+  margin-left: -55px;
+}
+label {
+  margin-right: 5px;
+}
+.list {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.info {
+  margin: 0.3rem 0;
+}
+/* 
+.infoContainer input {
+  padding: 0.5rem 0.5rem;
+  height: 5px;
+  width: 20vw;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+} */
+
+.info input {
+  padding: 0.5rem 0.5rem;
+  height: 5px;
+  width: 20vw;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.formTitle {
+  font-family: "Rubik", sans-serif;
+  color: #b58b50;
+}
+.buttonBack {
+  border-color: rgb(0, 0, 0);
+  border: solid 2px;
+  border-width: 7.5px;
+  border-radius: 100px;
+  background-color: rgb(224, 140, 37);
+  padding: 7px;
+  width: 230px;
+  height: 55px;
+  margin-top: 10px;
+  margin-left: 200%;
+  margin-bottom: 0px;
+  font-family: "Arial", cursive;
+  font-size: 17px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.buttonBack:hover {
+  background-color: rgb(54, 16, 9);
+  color: rgb(47, 47, 166);
+}
+.buttonCreate {
+  border-color: rgb(0, 0, 0);
+  border: solid 2px;
+  border-width: 7.5px;
+  border-radius: 100px;
+  background-color: rgb(224, 140, 37);
+  padding: 10px;
+  width: 150px;
+  height: 55px;
+  margin-left: 25%;
+  margin-bottom: 100px;
+  font-family: "Arial", cursive;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.buttonCreate:hover {
+  background-color: rgb(54, 16, 9);
+  color: rgb(47, 47, 166);
+}
+
+.submit {
+  margin-bottom: 50px;
+}

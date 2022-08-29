@@ -28,8 +28,8 @@ export default function SearchBar() {
         value={name}
         onChange={(e) => handleChange(e)}
       />
-      <button type="sumit" onClick={(e) => handleSubmit(e)}>
-        BUSCAR
+      <button type="submit" onClick={(e) => handleSubmit(e)}>
+        SEARCH
       </button>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { getAllDiets, postRecipe } from "../../redux/actions";
+import "./CreateRecipe.css";
 
 function validate(input) {
   let errors = {};
@@ -97,75 +98,80 @@ export default function CreateRecipe() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="formContainer">
       <Link to="/home">
-        <button>volver al home</button>
+        <button className="buttonBack">volver al home</button>
       </Link>
-      <h1>Crea tu propia receta</h1>
+      <h1 className="formTitle">Crea tu propia receta</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>image:</label>
-          <input
-            type="text"
-            value={input.image}
-            name="image"
-            onChange={handleChange}
-          />
+        <div className="infoContainer">
+          <div className="info">
+            <label>IMAGE:</label>
+            <input
+              type="text"
+              value={input.image}
+              name="image"
+              onChange={handleChange}
+            />
+          </div>
+          <div className="info">
+            <label>NAME</label>
+            <input
+              type="text"
+              value={input.name}
+              name="name"
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.name && <p>{errors.name}</p>}
+          </div>
+          <div className="info">
+            <label className="summary">SUMMARY</label>
+            <input
+              type="text"
+              value={input.summary}
+              name="summary"
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.summary && <p>{errors.summary}</p>}
+          </div>
+          <div className="info">
+            <label className="healthScore">HEALTH SCORE</label>
+            <input
+              type="number"
+              value={input.healthScore}
+              name="healthScore"
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.healthScore && <p>{errors.healthScore}</p>}
+          </div>
+          <div className="info">
+            <label className="steps">STEPS</label>
+            <input
+              type="text"
+              value={input.steps}
+              name="steps"
+              onChange={(e) => handleChange(e)}
+            />
+            {errors.steps && <p>{errors.steps}</p>}
+          </div>
+          <div className="info">
+            <label>DIETS</label>
+            <select onChange={(e) => handleSelect(e)}>
+              {diets.map((diet) => (
+                <option key={diet.id} value={diet.name}>
+                  {diet.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-        <div>
-          <label>name:</label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.name && <p>{errors.name}</p>}
-        </div>
-        <div>
-          <label>summary:</label>
-          <input
-            type="text"
-            value={input.summary}
-            name="summary"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.summary && <p>{errors.summary}</p>}
-        </div>
-        <div>
-          <label>Health Score:</label>
-          <input
-            type="number"
-            value={input.healthScore}
-            name="healthScore"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.healthScore && <p>{errors.healthScore}</p>}
-        </div>
-        <div>
-          <label>Diets:</label>
-          <select onChange={(e) => handleSelect(e)}>
-            {diets.map((diet) => (
-              <option key={diet.id} value={diet.name}>
-                {diet.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Steps:</label>
-          <input
-            type="text"
-            value={input.steps}
-            name="steps"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.steps && <p>{errors.steps}</p>}
-        </div>
-        <button type="submit">Crear receta</button>
-        <ul>
+        <ul className="list">
           <li>{input.diets.map((el) => el + " ,")}</li>
         </ul>
+
+        <button className="buttonCreate" type="submit">
+          Crear receta
+        </button>
       </form>
     </div>
   );

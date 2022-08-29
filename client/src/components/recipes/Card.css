@@ -1,3 +1,82 @@
-/* .card {
-  background-color: green;
-} */
+.container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  height: 30%;
+  border-radius: 15px;
+  background-color: rgba(195, 218, 245, 0.8);
+  background-image: linear-gradient(-225deg, snow 0%, silver 100%);
+}
+
+.img {
+  height: 40%;
+  border-radius: 15px;
+}
+
+.head {
+  color: snow;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  justify-content: flex-start;
+  margin-top: 4%;
+  margin-left: 4%;
+  text-align: start;
+}
+
+.aux {
+  /* display:inline; */
+  color: #0d0d0d;
+  margin: 1%;
+  width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: max-content;
+  font-size: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.cardInfo {
+  color: snow;
+  margin-top: 1%;
+  margin-left: 4%;
+  text-align: start;
+}
+
+h6 {
+  color: #262626;
+  padding: 0%;
+  margin: 0%;
+  display: inline;
+  font-size: 15px;
+}
+
+h3 {
+  color: #0d0d0d;
+
+  padding: 0;
+  margin: 1%;
+  font-size: 20px;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.detailsBtn {
+  display: flex;
+  width: 80%;
+  background-color: snow;
+  margin-top: 10px;
+  font-size: 20px;
+  height: 40px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: #0d0d0d;
+}

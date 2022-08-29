@@ -74,58 +74,69 @@ export default function Home() {
       <div className="navbar">
         <Navbar />
       </div>
-      <div className="filter-container">
-        <div className="order">
-          <select onChange={(e) => handlerSort(e)}>
-            <option value="reset">Order by default</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-          </select>
-        </div>
 
-        <div className="filterScore">
-          <select
-            onChange={(e) => handlerHealthScore(e)}
-            defaultValue="Order by score"
-          >
-            <option value="reset">Health Score by default</option>
-            <option value="up">0-100</option>
-            <option value="down">100-0</option>
-          </select>
-        </div>
-        <div className="filterType">
-          <select onChange={(e) => handlerFilterDiets(e)}>
-            <option value="All Diets"> All Diets</option>
-            {allDiets?.map((diet) => (
-              <option key={diet.id} value={diet.name}>
-                {diet.name}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="filterContainer">
+        <span className="filter">Order Filter</span>
+        <select onChange={(e) => handlerSort(e)}>
+          <option value="reset">Order by default</option>
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
 
-        <div className="filterRecipes">
-          <select onChange={(e) => handlerFilterCreated(e)}>
-            <option disabled>Filter</option>
-            <option value="All">All</option>
-            <option value="Created">Created</option>
-            <option value="API">API</option>
-          </select>
-        </div>
+        <span className="filter">Order by Health Score</span>
+        <select
+          onChange={(e) => handlerHealthScore(e)}
+          defaultValue="Order by score"
+        >
+          <option value="reset">Health Score by default</option>
+          <option value="up">High</option>
+          <option value="down">Low</option>
+        </select>
+
+        <span className="filter">Filter diets</span>
+        <select onChange={(e) => handlerFilterDiets(e)}>
+          <option value="All Diets"> All Diets</option>
+          {allDiets?.map((diet) => (
+            <option key={diet.id} value={diet.name}>
+              {diet.name}
+            </option>
+          ))}
+        </select>
+
+        <span className="filter">Created</span>
+        <select onChange={(e) => handlerFilterCreated(e)}>
+          <option disabled>Filter</option>
+          <option value="All">All</option>
+          <option value="Created">Created</option>
+          <option value="API">API</option>
+        </select>
       </div>
-      <div className="container">
-        {currentRecipe?.map((element) => {
-          return (
-            <div className="cardContainer" key={element.id}>
-              <Card
-                id={element.id}
-                name={element.name}
-                image={element.image}
-                diets={element.diets?.map((diet) => diet).join(", ")}
-              />
+
+      <div>
+        {allRecipes.length > 0 ? (
+          <div className="containerCards">
+            <div className="sideContainer">
+              {currentRecipe?.map((element) => {
+                return (
+                  <>
+                    <Card
+                      key={element.id}
+                      id={element.id}
+                      name={element.name}
+                      image={element.image}
+                      diets={element.diets?.map((diet) => diet).join(", ")}
+                    />
+                  </>
+                );
+              })}
             </div>
-          );
-        })}
+          </div>
+        ) : (
+          <span>loading</span>
+        )}
+      </div>
+
+      <div className="ContainerPag">
         <Paginated
           recipesPerPage={recipesPerPage}
           allRecipes={allRecipes.length}

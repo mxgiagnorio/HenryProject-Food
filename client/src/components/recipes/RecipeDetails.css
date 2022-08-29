@@ -1,0 +1,100 @@
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ecc1c1;
+}
+
+.detailImage {
+  width: 50%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .detailImage {
+    width: 80%;
+  }
+}
+
+.detailCard {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  position: relative;
+  top: 0px;
+  width: 50%;
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  list-style-type: none;
+}
+.detailDiets {
+  font-size: 25px;
+  position: relative;
+  background-color: #f6e3ca;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-left: auto;
+  padding-right: auto;
+  border-radius: 10%;
+  display: inline-block;
+  text-align: center;
+}
+.detailTypes {
+  font-size: 25px;
+  position: relative;
+  background-color: #a66005;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-left: auto;
+  padding-right: auto;
+  border-radius: 10%;
+  display: inline-block;
+  text-align: center;
+}
+.detailSummary {
+  text-align: justify;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.steps {
+  text-align: justify;
+
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.detailHscore {
+  font-size: 20px;
+  position: relative;
+  background-color: #dc5f5f;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: auto;
+  padding-right: auto;
+  border-radius: 10%;
+  display: inline-block;
+  text-align: center;
+}
+
+.back {
+  border-color: rgb(0, 0, 0);
+  border: solid 2px;
+  border-width: 7.5px;
+  border-radius: 100px;
+  background-color: rgb(224, 140, 37);
+  padding: 7px;
+  width: 230px;
+  height: 55px;
+  margin-top: 10px;
+  margin-left: 200%;
+  margin-bottom: 0px;
+  font-family: "Arial", cursive;
+  font-size: 17px;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.back:hover {
+  background-color: rgb(54, 16, 9);
+  color: rgb(47, 47, 166);
+}

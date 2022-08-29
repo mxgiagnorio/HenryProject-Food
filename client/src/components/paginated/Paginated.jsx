@@ -17,9 +17,7 @@ export default function Paginated({ paginated, recipesPerPage, allRecipes }) {
               number //si en pageNumber hay algo mapealo
             ) => (
               <span key={number}>
-                <button className="btn" onClick={() => paginated(number)}>
-                  {number}
-                </button>{" "}
+                <button onClick={() => paginated(number)}>{number}</button>{" "}
                 {/* y por cada elemento renderizame un boton y agregales un evento onClick, el cual establecera el numero de pagina en el que me encuentro*/}
               </span>
             )

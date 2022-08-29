@@ -1,18 +1,23 @@
 .pagination {
-  display: inline-block;
-  padding: 0;
-  margin-top: 25px;
+  position: relative;
+  display: flex;
+  padding-bottom: 25px;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
-.btn {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  border: 1px solid #370617;
-  margin: 0 4px;
+.pagination > button {
+  border-radius: 17px;
+  font-size: 15px;
+  height: 25px;
+  width: 65px;
+  margin: 2px;
+  color: #f0ead2;
+  box-shadow: 3px 0px 5px 0px #000000;
 }
 
-.pagination btn:focus {
-  background-color: black;
-  color: azure;
+.pagination button:hover {
+  background-color: #ddb892;
+  color: #f0ead2;
 }

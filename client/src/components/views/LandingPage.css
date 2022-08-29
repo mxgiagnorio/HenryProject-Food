@@ -1,0 +1,29 @@
+.background {
+  background-image: url(../../assets/landing2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 615px;
+  width: 100%;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 25px;
+  color: rgb(248, 243, 243);
+  text-align: center;
+}
+
+.enter {
+  height: 50px;
+  width: 220px;
+  background: rgb(54, 37, 4);
+  color: #f1efef;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  border-color: black;
+}

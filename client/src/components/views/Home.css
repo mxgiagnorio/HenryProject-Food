@@ -1,12 +1,51 @@
-.container {
+.containerCards {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  background: #bcaec5;
+  height: 1200px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-radius: 20px;
+  width: 75%;
+  background: #0d0d0d;
 }
 
-.cardContainer {
-  height: 400px;
-  width: 350px;
+.sideContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 2.5%;
+  gap: 2%;
+  background-color: transparent;
 }
+
+.containerPag {
+  position: absolute;
+  top: 1370px;
+  left: 25%;
+  border-radius: 5px;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.filter {
+  display: flex;
+  margin-right: 26px;
+  margin-left: 50px;
+  color: rgb(19, 18, 18);
+  font-size: 25px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* justify-content: space-evenly;
+align-items: center;
+text-align: center; */

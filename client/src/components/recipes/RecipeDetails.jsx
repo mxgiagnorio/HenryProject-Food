@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { getIdRecipe } from "../../redux/actions";
+import "./RecipeDetails.css";
 
 export default function RecipeDetails() {
   const dispatch = useDispatch();
@@ -15,25 +16,27 @@ export default function RecipeDetails() {
   }, [dispatch, id]);
 
   return (
-    <div>
-      <Link to="/home">
-        <button>volver al home</button>
-      </Link>
-      <br></br>
-      <img src={detail.image} alt="imagen" />
+    <div className="detailContainer">
       <div>
-        <h4>{detail.name}</h4>
-        <h4>
-          Resumen:{detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
-        </h4>
-        <h4>Puntaje Saludable: {detail.healthScore}</h4>
-        <span>diet types:</span> {detail.diets?.map((d) => d.name).join(",")}
-        <div>
-          <span className="thick"></span>
-          {detail.types}
+        <Link to="/home">
+          <button className="back">volver al home</button>
+        </Link>
+      </div>
+      <br></br>
+      <img className="detailImage" src={detail.image} alt="imagen" />
+      <div className="detailCard">
+        <h2 className="detailTitle">{detail.name}</h2>
+        <div className="detailDiets">
+          {detail.diets?.map((element) => element).join(",")}
         </div>
-        <div>
-          <span className="thick">Paso a paso: </span>
+        <h4 className="detailSummary">
+          {detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
+        </h4>
+        <h4 className="detailHscore">Health Score: {detail.healthScore}</h4>
+        {/* <span>diet types:</span> {detail.diets?.map((d) => d.name).join(",")} */}
+        <div className="detailTypes">{detail.types}</div>
+        <div className="steps">
+          <span> steps :</span>
           {detail.steps}
         </div>
       </div>
