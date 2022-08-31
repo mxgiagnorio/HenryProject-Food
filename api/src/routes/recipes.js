@@ -18,7 +18,11 @@ const getApiInfo = async () => {
       healthScore: el.healthScore,
       summary: el.summary,
       types: el.dishTypes?.map((element) => element),
-      diets: el.diets?.map((element) => element),
+      diets: el.diets?.map((diet) => {
+        return {
+          name: diet,
+        };
+      }),
       steps:
         el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
           ? el.analyzedInstructions[0].steps
@@ -52,13 +56,6 @@ const allApiRecipes = async () => {
   } else return apiInfo;
 };
 
-// router.get("/", async (req, res) => {
-//   const foodInfo = await getApiInfo();
-//   foodInfo.length
-//     ? res.status(200).send(foodInfo)
-//     : res.status(404).send("no se encontro la info");
-// });
-
 router.get("/", async (req, res) => {
   const { name } = req.query;
   if (name) {
@@ -74,7 +71,7 @@ router.get("/", async (req, res) => {
         healthScore: el.healthScore,
         summary: el.summary,
         types: el.dishTypes.join("-"),
-        diets: el.diets?.map((element) => element),
+        diets: el.diets?.map((element) => element.name),
         steps:
           el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
             ? el.analyzedInstructions[0].steps

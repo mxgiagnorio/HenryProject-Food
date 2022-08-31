@@ -15,7 +15,11 @@ export default function SearchBar() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(getRecipesNames(name));
+    if (!name) {
+      return alert("Buscate algo");
+    } else {
+      dispatch(getRecipesNames(name));
+    }
     setName("");
   }
 

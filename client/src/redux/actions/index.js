@@ -72,13 +72,36 @@ export const sortFilter = (payload) => {
 export const getIdRecipe = (id) => {
   return async function (dispatch) {
     try {
-      const Info = await axios.get(`http://localhost:3001/api/recipe/${id}`);
-      return dispatch({ type: GET_ID_RECIPE, payload: Info.data });
+      const info = await axios.get(`http://localhost:3001/api/recipe/${id}`);
+
+      return dispatch({ type: GET_ID_RECIPE, payload: info.data });
     } catch (error) {
       console.log(error);
     }
   };
 };
+
+// export const getIdRecipe = (id) => {
+//   return async function (dispatch) {
+//     try {
+//       const info = await axios.get(`http://localhost:3001/api/recipe/${id}`);
+//       console.log(info.data);
+//       if (info.data.id.length > 9) {
+//         let recipes = info.data;
+//         recipes.diets = recipes.diets.map(({ name }) => name);
+//         console.log(recipes);
+//         return dispatch({
+//           type: GET_ID_RECIPE,
+//           payload: recipes,
+//         });
+//       } else {
+//         return dispatch({ type: GET_ID_RECIPE, payload: info.data });
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// };
 
 export const getRecipesNames = (name) => {
   return async function (dispatch) {
@@ -92,17 +115,3 @@ export const getRecipesNames = (name) => {
     }
   };
 };
-
-// export function getIdRecipe(id) {
-//   return async (dispatch) => {
-//     await axios
-//       .get(`http://localhost:3001/api/recipe/${id}`)
-//       .then((result) => {
-//         return dispatch({
-//           type: GET_ID_RECIPE,
-//           payload: result.data,
-//         });
-//       })
-//       .catch((Error) => console.log(Error));
-//   };
-// }

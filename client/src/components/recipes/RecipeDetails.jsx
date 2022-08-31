@@ -8,12 +8,12 @@ import "./RecipeDetails.css";
 
 export default function RecipeDetails() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const params = useParams();
   const detail = useSelector((state) => state.idRecipe);
   //   const [loading = true, setLoading] = useState();
   useEffect(() => {
-    dispatch(getIdRecipe(id));
-  }, [dispatch, id]);
+    dispatch(getIdRecipe(params.id));
+  }, [dispatch, params.id]);
 
   return (
     <div className="detailContainer">
@@ -27,7 +27,11 @@ export default function RecipeDetails() {
       <div className="detailCard">
         <h2 className="detailTitle">{detail.name}</h2>
         <div className="detailDiets">
-          {detail.diets?.map((element) => element).join(",")}
+          {/* {detail.diets?.map((element) => element).join(",")} */}
+          {detail.diets &&
+            detail.diets.map((d, i) => (
+              <span key={i}>{d.name ? d.name : d}</span>
+            ))}
         </div>
         <h4 className="detailSummary">
           {detail.summary && detail.summary.replace(/<[^>]+>/g, "")}

@@ -60,15 +60,15 @@ export default function Home() {
   //   e.preventDefault();
   //   dispatch(getAllRecipes());
   // }
-  {
-    /* <button
-    onClick={(e) => {
-      handleClick(e);
-    }}
-  >
-    Reset filters
-  </button> */
-  }
+  // {
+  //   <button
+  //     onClick={(e) => {
+  //       handleClick(e);
+  //     }}
+  //   >
+  //     Reset filters
+  //   </button>;
+  // }
   return (
     <div>
       <div className="navbar">
@@ -89,8 +89,8 @@ export default function Home() {
           defaultValue="Order by score"
         >
           <option value="reset">Health Score by default</option>
-          <option value="up">High</option>
-          <option value="down">Low</option>
+          <option value="down">High</option>
+          <option value="up">Low</option>
         </select>
 
         <span className="filter">Filter diets</span>
@@ -124,7 +124,7 @@ export default function Home() {
                       id={element.id}
                       name={element.name}
                       image={element.image}
-                      diets={element.diets?.map((diet) => diet).join(", ")}
+                      diets={element.diets}
                     />
                   </>
                 );

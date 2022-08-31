@@ -11,7 +11,7 @@ let initialState = {
   allRecipes: [],
   recipesFilters: [],
   allDiets: [],
-  idRecipe: [],
+  idRecipe: {},
   namesRecipes: [],
 };
 function rootReducer(state = initialState, action) {
@@ -69,12 +69,16 @@ function rootReducer(state = initialState, action) {
     //   const infoRecipes = state.recipesFilters;
 
     //   const filtByDiets =
-    //     action.payload === "Filter by Diet"
+    //     action.payload === "All Diets"
     //       ? state.recipesFilters
     //       : infoRecipes.filter((recipe) => {
     //           console.log(recipe.diets.length);
-    //           if (recipe.diets.length) {
-    //             if (recipe.diets.find((element) => element === action.payload))
+    //           if (recipe.diets.name.length) {
+    //             if (
+    //               recipe.diets.find(
+    //                 (element) => element.name === action.payload
+    //               )
+    //             )
     //               return recipe;
     //           }
 
@@ -97,15 +101,51 @@ function rootReducer(state = initialState, action) {
     //     recipes: filtByDiets,
     //   };
     case GET_FILTER_DIETS:
-      const info = state.recipesFilters;
-      const dietsFiltered =
+      const recipes_All = state.recipesFilters;
+
+      const filtByDiets =
         action.payload === "All Diets"
-          ? info
-          : info.filter((element) => element.diets.includes(action.payload));
+          ? state.recipesFilters
+          : recipes_All.filter((recipe) => {
+              console.log(recipe.diets.length);
+              if (recipe.diets.length > 0) {
+                if (
+                  recipe.diets.find(
+                    (element) => element.name === action.payload
+                  )
+                )
+                  return recipe;
+              }
+
+              if (
+                action.payload === "vegetarian" &&
+                recipe.hasOwnProperty("vegetarian") &&
+                recipe.vegetarian === true
+              )
+                return recipe;
+
+              if (
+                action.payload === "dairyFree" &&
+                recipe.hasOwnProperty("dairyFree") &&
+                recipe.dairyFree === true
+              )
+                return recipe;
+            });
       return {
         ...state,
-        allRecipes: dietsFiltered,
+        allRecipes: filtByDiets,
       };
+    // case GET_FILTER_DIETS:
+    //   const info = state.recipesFilters;
+    //   console.log(info);
+    //   const dietsFiltered =
+    //     action.payload === "All Diets"
+    //       ? info
+    //       : info.filter((element) => element.diets.includes(action.payload));
+    //   return {
+    //     ...state,
+    //     allRecipes: dietsFiltered,
+    //   };
     case GET_FILTER_CREATED:
       const dietsCreated =
         action.payload === "Created"

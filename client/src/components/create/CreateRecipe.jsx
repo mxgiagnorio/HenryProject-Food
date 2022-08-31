@@ -14,7 +14,7 @@ function validate(input) {
   if (!input.summary) {
     errors.summary = "La descripcion es requerida";
   } else if (input.summary.length > 100) {
-    errors.description = "La descripcion es muy larga. (Max = 100 caracteres)";
+    errors.summary = "La descripcion es muy larga. (Max = 100 caracteres)";
   }
   if (!input.steps) {
     errors.steps = "El paso a paso es requerido";

@@ -13,8 +13,16 @@ export default function Card({ name, image, diets, id }) {
       </div>
       <div className="cardInfo" key={id}>
         <div className="aux">
-          <h6> Diet types: </h6>
-          <p>{diets}</p>
+          <h3>
+            {diets?.map((diet, id) => (
+              <span key={id}> {diet.name} </span>
+            ))}
+          </h3>
+          {/* <h3>
+            {diets?.map((diet, id) => (
+              <span key={id}> {diet.name} </span>
+            ))}
+          </h3> */}
         </div>
         <div>
           <button className="detailsBtn">
