@@ -19,6 +19,7 @@ export const getAllRecipes = () => {
     }
   };
 };
+
 export const getAllDiets = () => {
   return async function (dispatch) {
     try {

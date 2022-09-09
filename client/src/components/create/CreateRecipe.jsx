@@ -10,6 +10,8 @@ function validate(input) {
     errors.name = "el nombre es requerido";
   } else if (!/^[a-zA-Z .]+$/.test(input.name)) {
     errors.name = "Solo se aceptan letras";
+  } else if (input.name[0] === " ") {
+    errors.name = "No puedes comenzar con un espacio vacio";
   }
   if (!input.summary) {
     errors.summary = "La descripcion es requerida";
@@ -93,6 +95,13 @@ export default function CreateRecipe() {
     });
   }
 
+  function handleDelete(el) {
+    setInput({
+      ...input,
+      diets: input.diets.filter((diet) => diet !== el),
+    });
+  }
+
   useEffect(() => {
     dispatch(getAllDiets());
   }, [dispatch]);
@@ -100,15 +109,15 @@ export default function CreateRecipe() {
   return (
     <div className="formContainer">
       <Link to="/home">
-        <button className="buttonBack">volver al home</button>
+        <button className="buttonBack">Back to home</button>
       </Link>
-      <h1 className="formTitle">Crea tu propia receta</h1>
+      <h1 className="formTitle">Create your recipe</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="infoContainer">
           <div className="info">
             <label>IMAGE:</label>
             <input
-              type="text"
+              type="url"
               value={input.image}
               name="image"
               onChange={handleChange}
@@ -122,7 +131,7 @@ export default function CreateRecipe() {
               name="name"
               onChange={(e) => handleChange(e)}
             />
-            {errors.name && <p>{errors.name}</p>}
+            {errors.name && <p className="error">{errors.name}</p>}
           </div>
           <div className="info">
             <label className="summary">SUMMARY</label>
@@ -132,7 +141,7 @@ export default function CreateRecipe() {
               name="summary"
               onChange={(e) => handleChange(e)}
             />
-            {errors.summary && <p>{errors.summary}</p>}
+            {errors.summary && <p className="error">{errors.summary}</p>}
           </div>
           <div className="info">
             <label className="healthScore">HEALTH SCORE</label>
@@ -142,7 +151,9 @@ export default function CreateRecipe() {
               name="healthScore"
               onChange={(e) => handleChange(e)}
             />
-            {errors.healthScore && <p>{errors.healthScore}</p>}
+            {errors.healthScore && (
+              <p className="error">{errors.healthScore}</p>
+            )}
           </div>
           <div className="info">
             <label className="steps">STEPS</label>
@@ -152,7 +163,7 @@ export default function CreateRecipe() {
               name="steps"
               onChange={(e) => handleChange(e)}
             />
-            {errors.steps && <p>{errors.steps}</p>}
+            {errors.steps && <p className="error">{errors.steps}</p>}
           </div>
           <div className="info">
             <label>DIETS</label>
@@ -170,9 +181,17 @@ export default function CreateRecipe() {
         </ul>
 
         <button className="buttonCreate" type="submit">
-          Crear receta
+          create!
         </button>
       </form>
+      {/* {input.diets.map((el) => (
+        <div className="borrar">
+          <p>{el}</p>
+          <button onClick={() => handleDelete(el)}>X</button>
+        </div>
+      ))} */}
     </div>
   );
 }
+
+//https://vinomanos.com/wp-content/uploads/2021/06/Pasta-1-min.jpg

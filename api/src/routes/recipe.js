@@ -4,20 +4,6 @@ const axios = require("axios");
 const { API_KEY } = process.env;
 
 const router = Router();
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     let info = await getDbInfo();
-//     if (id) {
-//       let pokemon = info.find((pokemon) => pokemon.id == id);
-//       pokemon
-//         ? res.status(200).send(pokemon)
-//         : res.status(404).send("No esta el detalle del pokemon");
-//     }
-//   } catch (error) {
-//     console.log("ERROR EN RUTA GET A /POKEMON POR ID", error);
-//   }
-// });
 router.get("/:idRecipe", async (req, res) => {
   const { idRecipe } = req.params;
   try {
@@ -51,4 +37,39 @@ router.get("/:idRecipe", async (req, res) => {
   }
 });
 
+// router.delete("/:id", async (req, res, next) => {
+//   const { id } = req.params;
+//   try {
+//     await Recipe.destroy({
+//       where: { id: id },
+//     });
+//     return res.send("The recipe was deleted");
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+// router.put("/:id", async (req, res, next) => {
+//   try {
+//     const { id } = req.params,
+//       { name, summary, healthScore, steps, image, diets } = req.body,
+//       recipeEditada = await Recipe.update(
+//         {
+//           name,
+//           summary,
+//           healthScore,
+//           steps,
+//           image,
+//         },
+//         {
+//           where: {
+//             id: id,
+//           },
+//         },
+//         { include: diets }
+//       );
+//     res.send(recipeEditada);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 module.exports = router;

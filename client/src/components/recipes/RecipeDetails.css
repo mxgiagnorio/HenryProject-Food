@@ -3,12 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ecc1c1;
+  background-color: #efede7;
 }
 
 .detailImage {
-  width: 50%;
+  width: 35%;
   height: auto;
+  border-radius: 70px;
 }
 
 @media (max-width: 600px) {
@@ -28,10 +29,13 @@
   display: inline-block;
   list-style-type: none;
 }
+.detailTitle {
+  color: #ab6b59;
+}
 .detailDiets {
   font-size: 25px;
   position: relative;
-  background-color: #f6e3ca;
+  color: #c97d68;
   margin-right: 2px;
   margin-left: 2px;
   padding-left: auto;
@@ -39,11 +43,13 @@
   border-radius: 10%;
   display: inline-block;
   text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .detailTypes {
   font-size: 25px;
   position: relative;
-  background-color: #a66005;
+  color: #ab6b59;
   margin-right: 2px;
   margin-left: 2px;
   padding-left: auto;
@@ -51,24 +57,37 @@
   border-radius: 10%;
   display: inline-block;
   text-align: center;
+  font-weight: 600;
 }
+
 .detailSummary {
   text-align: justify;
-  padding-left: 5px;
-  padding-right: 5px;
+  background-color: #edccb4;
+  padding: 20px;
+  font-weight: 400;
+  border: solid;
+  border-color: #c97d68;
+  border-radius: 5vh;
+  overflow: hidden;
+  color: snow;
 }
-.steps {
+.stepsDetail {
   text-align: justify;
-
-  padding-left: 5px;
-  padding-right: 5px;
+  border: solid;
+  border-color: #c97d68;
+  border-radius: 8%;
+  font-weight: 300;
+  padding: 20px;
+  background-color: #eaded5;
+  color: #6c584f;
 }
 
 .detailHscore {
   font-size: 20px;
   position: relative;
-  background-color: #dc5f5f;
+  background-color: #ab6b59;
   margin-right: 10px;
+  color: white;
   margin-left: 10px;
   padding-left: auto;
   padding-right: auto;
@@ -76,25 +95,48 @@
   display: inline-block;
   text-align: center;
 }
-
+.links {
+  display: flex;
+}
 .back {
-  border-color: rgb(0, 0, 0);
-  border: solid 2px;
-  border-width: 7.5px;
+  border: solid;
+  border-color: #c97d68;
+  border-width: 2.5px;
   border-radius: 100px;
-  background-color: rgb(224, 140, 37);
+  background-color: snow;
   padding: 7px;
   width: 230px;
-  height: 55px;
+  height: 45px;
   margin-top: 10px;
-  margin-left: 200%;
+  margin-left: -155%;
   margin-bottom: 0px;
   font-family: "Arial", cursive;
   font-size: 17px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #c97d68;
 }
 .back:hover {
-  background-color: rgb(54, 16, 9);
-  color: rgb(47, 47, 166);
+  background-color: #d2b39e;
+  color: white;
+}
+.createRecipe {
+  border: solid;
+  border-color: #c97d68;
+  border-width: 2.5px;
+  border-radius: 100px;
+  background-color: snow;
+  padding: 7px;
+  width: 230px;
+  height: 45px;
+  margin-top: 10px;
+  margin-left: 158%;
+  margin-bottom: 0px;
+  font-family: "Arial", cursive;
+  font-size: 17px;
+  cursor: pointer;
+  color: #c97d68;
+}
+.createRecipe:hover {
+  background-color: #d2b39e;
+  color: white;
 }

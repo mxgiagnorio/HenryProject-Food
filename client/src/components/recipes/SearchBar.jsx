@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { getRecipesNames } from "../../redux/actions";
 import "./SearchBar.css";
 
@@ -8,23 +10,28 @@ export default function SearchBar() {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(getRecipesNames());
+  // }, [dispatch]);
+
   function handleChange(e) {
     e.preventDefault();
     setName(e.target.value);
+    console.log(name, "soy name");
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!name) {
-      return alert("Buscate algo");
+      return alert("Busca una receta");
     } else {
       dispatch(getRecipesNames(name));
+      setName("");
     }
-    setName("");
   }
 
   return (
-    <div>
+    <div className="searchBar">
       <input
         type="text"
         name="search"
@@ -32,7 +39,11 @@ export default function SearchBar() {
         value={name}
         onChange={(e) => handleChange(e)}
       />
-      <button type="submit" onClick={(e) => handleSubmit(e)}>
+      <button
+        className="btnSearch"
+        type="submit"
+        onClick={(e) => handleSubmit(e)}
+      >
         SEARCH
       </button>
     </div>

@@ -11,6 +11,19 @@
   flex-direction: column;
   margin-bottom: 3rem;
 }
+/* .deleteRecipe {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  justify-content: center;
+  font-weight: 300;
+  color: #6c584f;
+}
+.closeButton {
+  border-radius: 1px;
+  border-color: #c97d68;
+  color: #6c584f;
+} */
 .infoSummary {
   padding: 0.5rem 0.5rem;
   height: 5px;
@@ -22,10 +35,10 @@
   margin-right: 7px;
 }
 .summary {
-  margin-left: -27px;
+  margin-left: -33px;
 }
 .healthScore {
-  margin-left: -55px;
+  margin-left: -68px;
 }
 label {
   margin-right: 5px;
@@ -33,6 +46,8 @@ label {
 .list {
   list-style: none;
   margin-bottom: 40px;
+  color: #c97d68;
+  font-weight: 300;
 }
 
 .info {
@@ -60,11 +75,11 @@ label {
   color: #b58b50;
 }
 .buttonBack {
-  border-color: rgb(0, 0, 0);
+  border-color: #c97d68;
   border: solid 2px;
-  border-width: 7.5px;
+  border-width: 2.5px;
   border-radius: 100px;
-  background-color: rgb(224, 140, 37);
+  background-color: snow;
   padding: 7px;
   width: 230px;
   height: 55px;
@@ -74,18 +89,19 @@ label {
   font-family: "Arial", cursive;
   font-size: 17px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #c97d68;
 }
 .buttonBack:hover {
-  background-color: rgb(54, 16, 9);
-  color: rgb(47, 47, 166);
+  background-color: #d2b39e;
+  color: white;
 }
+
 .buttonCreate {
-  border-color: rgb(0, 0, 0);
+  border-color: #c97d68;
   border: solid 2px;
-  border-width: 7.5px;
+  border-width: 2.5px;
   border-radius: 100px;
-  background-color: rgb(224, 140, 37);
+  background-color: snow;
   padding: 10px;
   width: 150px;
   height: 55px;
@@ -94,13 +110,17 @@ label {
   font-family: "Arial", cursive;
   font-size: 18px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  color: #c97d68;
 }
 .buttonCreate:hover {
-  background-color: rgb(54, 16, 9);
-  color: rgb(47, 47, 166);
+  background-color: #d2b39e;
+  color: white;
 }
 
 .submit {
   margin-bottom: 50px;
+}
+
+.error {
+  color: red;
 }

@@ -38,6 +38,8 @@ export default function Home() {
   function handlerFilterDiets(e) {
     e.preventDefault();
     dispatch(filterbyDiets(e.target.value));
+    setCurrentPage(1);
+    setOrder(`${e.target.value}`);
   }
 
   function handlerFilterCreated(e) {
@@ -60,21 +62,21 @@ export default function Home() {
   //   e.preventDefault();
   //   dispatch(getAllRecipes());
   // }
-  // {
-  //   <button
-  //     onClick={(e) => {
-  //       handleClick(e);
-  //     }}
-  //   >
-  //     Reset filters
-  //   </button>;
-  // }
+
   return (
     <div>
       <div className="navbar">
         <Navbar />
       </div>
-
+      {/* <div>
+        <button
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          refresh
+        </button>
+      </div> */}
       <div className="filterContainer">
         <span className="filter">Order Filter</span>
         <select onChange={(e) => handlerSort(e)}>
@@ -138,6 +140,8 @@ export default function Home() {
 
       <div className="ContainerPag">
         <Paginated
+          key={1}
+          currentPage={currentPage}
           recipesPerPage={recipesPerPage}
           allRecipes={allRecipes.length}
           paginated={paginated}
@@ -146,3 +150,5 @@ export default function Home() {
     </div>
   );
 }
+
+// allRecipes={allRecipes ? allRecipes.length : ""}

@@ -71,7 +71,11 @@ router.get("/", async (req, res) => {
         healthScore: el.healthScore,
         summary: el.summary,
         types: el.dishTypes.join("-"),
-        diets: el.diets?.map((element) => element.name),
+        diets: el.diets?.map((diet) => {
+          return {
+            name: diet,
+          };
+        }),
         steps:
           el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
             ? el.analyzedInstructions[0].steps

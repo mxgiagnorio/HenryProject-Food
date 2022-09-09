@@ -13,13 +13,17 @@ export default function RecipeDetails() {
   //   const [loading = true, setLoading] = useState();
   useEffect(() => {
     dispatch(getIdRecipe(params.id));
+    // return () => getIdRecipe();
   }, [dispatch, params.id]);
 
   return (
     <div className="detailContainer">
-      <div>
+      <div className="links">
         <Link to="/home">
-          <button className="back">volver al home</button>
+          <button className="back">Back to home</button>
+        </Link>
+        <Link to="/recipes">
+          <button className="createRecipe">Create your recipe!</button>
         </Link>
       </div>
       <br></br>
@@ -27,22 +31,17 @@ export default function RecipeDetails() {
       <div className="detailCard">
         <h2 className="detailTitle">{detail.name}</h2>
         <div className="detailDiets">
-          {/* {detail.diets?.map((element) => element).join(",")} */}
           {detail.diets &&
             detail.diets.map((d, i) => (
-              <span key={i}>{d.name ? d.name : d}</span>
+              <span key={i}>{d.name ? d.name : d + "  "}</span>
             ))}
         </div>
-        <h4 className="detailSummary">
-          {detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
-        </h4>
         <h4 className="detailHscore">Health Score: {detail.healthScore}</h4>
-        {/* <span>diet types:</span> {detail.diets?.map((d) => d.name).join(",")} */}
         <div className="detailTypes">{detail.types}</div>
-        <div className="steps">
-          <span> steps :</span>
-          {detail.steps}
-        </div>
+        <p className="detailSummary">
+          {detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
+        </p>
+        <div className="stepsDetail">{detail.steps}</div>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ const getDiets = async () => {
     }
     const diets = [
       "gluten free",
-      "dairyFree",
       "paleolithic",
       "ketogenic",
       "lacto ovo vegetarian",

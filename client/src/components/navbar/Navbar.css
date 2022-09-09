@@ -1,5 +1,5 @@
 nav {
-  background-color: #262626;
+  background-color: #edccb4;
   height: 100px;
   width: 100%;
   display: flex;
@@ -28,6 +28,7 @@ nav {
   height: 90px;
   padding-right: 10px;
   cursor: pointer;
+  background: #eaded5;
 }
 
 .navTitle {
