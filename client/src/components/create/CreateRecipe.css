@@ -44,8 +44,10 @@ label {
   margin-right: 5px;
 }
 .list {
+  position: absolute;
+  width: 40%;
   list-style: none;
-  margin-bottom: 40px;
+  margin-top: -50px;
   color: #c97d68;
   font-weight: 300;
 }

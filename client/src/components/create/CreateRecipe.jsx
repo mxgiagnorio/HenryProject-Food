@@ -177,7 +177,7 @@ export default function CreateRecipe() {
           </div>
         </div>
         <ul className="list">
-          <li>{input.diets.map((el) => el + " ,")}</li>
+          <li>{input.diets?.map((el) => el + " ,")}</li>
         </ul>
 
         <button className="buttonCreate" type="submit">
@@ -185,7 +185,7 @@ export default function CreateRecipe() {
         </button>
       </form>
       {/* {input.diets.map((el) => (
-        <div className="borrar">
+        <div className="list">
           <p>{el}</p>
           <button onClick={() => handleDelete(el)}>X</button>
         </div>
