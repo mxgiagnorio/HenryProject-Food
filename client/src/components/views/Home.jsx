@@ -77,7 +77,7 @@ export default function Home() {
           refresh
         </button>
       </div> */}
-      <div className="filterContainer">
+      <div className="filterContainer w-full flex flex-col items-center md:flex-row md:justify-center mt-6 animate-appear">
         <span className="filter">Order Filter</span>
         <select onChange={(e) => handlerSort(e)}>
           <option value="reset">Order by default</option>

@@ -14,10 +14,13 @@ export default function Paginated({
   }
 
   return (
-    <div className="pagination">
+    <div className="pagination ">
       {" "}
       {pageNumbers.length > 1 && (
-        <span className="previous" key="prev">
+        <span
+          className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          key="prev"
+        >
           <button
             onClick={() => {
               if (currentPage > 1) {
@@ -30,12 +33,18 @@ export default function Paginated({
         </span>
       )}
       {pageNumbers?.map((number) => (
-        <span key={number}>
+        <span
+          className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          key={number}
+        >
           <button onClick={() => paginated(number)}>{number}</button>
         </span>
       ))}
       {pageNumbers.length > 1 && (
-        <span key="next">
+        <span
+          className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+          key="next"
+        >
           <button
             onClick={() => {
               if (currentPage < pageNumbers.length) {

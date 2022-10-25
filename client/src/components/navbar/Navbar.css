@@ -24,11 +24,23 @@ nav {
 }
 
 .btnCreate {
-  width: 80px;
-  height: 90px;
+  /* width: 20px;
   padding-right: 10px;
   cursor: pointer;
-  background: #eaded5;
+  background: #eaded5; */
+  display: flex;
+  width: 80%;
+  background-color: snow;
+  border: solid;
+  border-color: #c97d68;
+  margin-top: 10px;
+  font-size: 10px;
+  height: 30px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: #c97d68;
 }
 
 .navTitle {

@@ -6,7 +6,10 @@ export default function landingPage() {
   return (
     <div>
       <div className="background">
-        <h3 className="title"> H E N R Y F O O D S</h3>
+        <h3 className="title text-3xl font-bold underline">
+          {" "}
+          H E N R Y F O O D S
+        </h3>
         <Link to="/Home">
           <button className="enter">Ingresar</button>
         </Link>
