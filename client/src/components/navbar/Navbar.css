@@ -29,17 +29,17 @@ nav {
   cursor: pointer;
   background: #eaded5; */
   display: flex;
-  width: 80%;
+  width: 70%;
   background-color: snow;
   border: solid;
   border-color: #c97d68;
   margin-top: 10px;
-  font-size: 10px;
-  height: 30px;
+  font-size: 15px;
+  height: 70px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   color: #c97d68;
 }
 

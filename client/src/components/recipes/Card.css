@@ -86,3 +86,9 @@ button:hover {
   background-color: #d2b39e;
   color: white;
 }
+
+@media all and (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+}
