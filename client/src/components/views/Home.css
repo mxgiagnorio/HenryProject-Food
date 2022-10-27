@@ -51,7 +51,18 @@
 
 @media all and (max-width: 767px) {
   .mainContainer {
-    height: 1720px;
+    height: 2726px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .containerCards {
+    height: 980px;
+    display: inline;
+    width: 295px;
   }
 }
 
