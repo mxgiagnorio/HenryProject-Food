@@ -7,6 +7,17 @@
   margin-top: 20px;
 }
 
+.pagination span {
+  background-color: white;
+  display: inline-flex;
+  justify-items: center;
+  border-radius: 15px;
+  font-weight: 500;
+  padding: 15px 10px 15px 10px;
+  margin: 2px;
+  color: #c97d68;
+}
+
 .pagination > button {
   border-radius: 17px;
   font-size: 15px;
@@ -17,7 +28,20 @@
   box-shadow: 3px 0px 5px 0px #000000;
 }
 
-.pagination button:hover {
+.pagination span:hover {
   background-color: #ddb892;
   color: #f0ead2;
+}
+
+@media all and (max-width: 767px) {
+  .pagination span {
+    background-color: white;
+    display: inline-flex;
+    justify-items: center;
+    border-radius: 16px;
+    font-weight: 700;
+    margin: 1px;
+    color: #c97d68;
+    padding: 1%;
+  }
 }
