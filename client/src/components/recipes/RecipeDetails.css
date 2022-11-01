@@ -14,7 +14,7 @@
 
 @media (max-width: 600px) {
   .detailImage {
-    width: 80%;
+    width: 50%;
   }
 }
 
@@ -66,6 +66,7 @@
   padding: 20px;
   font-weight: 400;
   border: solid;
+  margin-top: 25px;
   border-color: #c97d68;
   border-radius: 5vh;
   overflow: hidden;
@@ -77,6 +78,7 @@
   border-color: #c97d68;
   border-radius: 8%;
   font-weight: 300;
+  margin-top: 10px;
   padding: 20px;
   background-color: #eaded5;
   color: #6c584f;
@@ -139,4 +141,30 @@
 .createRecipe:hover {
   background-color: #d2b39e;
   color: white;
+}
+
+@media all and (max-width: 767px) {
+  .back {
+    width: 93px;
+    height: 42px;
+    margin-top: 10px;
+    margin-left: 59%;
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .createRecipe {
+    width: 122px;
+    height: 42px;
+    margin-top: 62px;
+    margin-left: -39%;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .detailCard {
+    width: 85%;
+  }
 }
