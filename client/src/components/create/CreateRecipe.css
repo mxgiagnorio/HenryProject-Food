@@ -74,6 +74,7 @@ label {
 
 .formTitle {
   font-family: "Rubik", sans-serif;
+  font-size: 25px;
   color: #b58b50;
 }
 .buttonBack {
@@ -125,4 +126,55 @@ label {
 
 .error {
   color: red;
+}
+
+@media all and (max-width: 767px) {
+  .buttonBack {
+    width: 152px;
+    height: 52px;
+    margin-top: 4px;
+    margin-left: 7%;
+    margin-bottom: 28px;
+  }
+}
+@media all and (max-width: 991px) {
+  .buttonBack {
+    width: 150px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .info {
+    margin-left: 70px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .error {
+    font-size: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 15vh;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .list {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .buttonCreate {
+    margin-top: 90px;
+  }
+}
+
+@media all and (min-width: 767px) {
+  .buttonCreate {
+    margin-top: 40px;
+  }
 }
