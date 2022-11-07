@@ -45,3 +45,16 @@
     padding: 1%;
   }
 }
+
+/* @media all and (max-width: 575px) {
+  .pagination {
+    justify-content: unset;
+  }
+} */
+
+@media all and (max-width: 575px) {
+  .pagination span {
+    margin: 0.5px;
+    padding: 0.5%;
+  }
+}

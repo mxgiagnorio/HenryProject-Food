@@ -68,15 +68,7 @@ export default function Home() {
       <div className="navbar">
         <Navbar />
       </div>
-      {/* <div>
-        <button
-          onClick={(e) => {
-            handleClick(e);
-          }}
-        >
-          refresh
-        </button>
-      </div> */}
+
       <div className="filterContainer w-full flex flex-col items-center md:flex-row justify-center mt-10 animate-appear">
         <span className="filter">Order Filter</span>
         <select onChange={(e) => handlerSort(e)}>

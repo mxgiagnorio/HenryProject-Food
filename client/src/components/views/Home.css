@@ -65,6 +65,11 @@
     background-color: transparent;
   }
 }
+@media all and (min-width: 991px) {
+  .containerCards {
+    width: 90%;
+  }
+}
 
 @media all and (max-width: 767px) {
   .containerCards .sideContainer {

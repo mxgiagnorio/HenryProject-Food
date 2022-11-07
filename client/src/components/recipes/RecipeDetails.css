@@ -152,6 +152,11 @@
     font-size: 12px;
   }
 }
+@media all and (min-width: 767px) {
+  .back {
+    margin-left: -55%;
+  }
+}
 
 @media all and (max-width: 767px) {
   .createRecipe {
@@ -160,6 +165,11 @@
     margin-top: 62px;
     margin-left: -39%;
     font-size: 12px;
+  }
+}
+@media all and (min-width: 767px) {
+  .createRecipe {
+    margin-left: 60%;
   }
 }
 
