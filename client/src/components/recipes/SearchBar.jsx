@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getRecipesNames } from "../../redux/actions";
+import Swal from "sweetalert2";
 import "./SearchBar.css";
 
 export default function SearchBar() {
@@ -23,7 +24,7 @@ export default function SearchBar() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!name) {
-      return alert("Busca una receta");
+      return Swal.fire("", "Busca una receta", "warning");
     } else {
       dispatch(getRecipesNames(name));
       setName("");
@@ -33,9 +34,10 @@ export default function SearchBar() {
   return (
     <div className="searchBar">
       <input
+        className="w-5/6 rounded-full h-full pl-4 border-2 outline-none"
         type="text"
         name="search"
-        placeholder="example: pizza..."
+        placeholder="example: pizza"
         value={name}
         onChange={(e) => handleChange(e)}
       />

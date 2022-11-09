@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { getAllDiets, postRecipe } from "../../redux/actions";
+import Swal from "sweetalert2";
 import "./CreateRecipe.css";
 
 function validate(input) {
@@ -55,7 +56,7 @@ export default function CreateRecipe() {
     //solo habra propiedades si es que HAY ALGUN ERROR
     if (error.length !== 0 || !input.diets.length) {
       //Entonces si hay algun error, error va a ser un array con la propiedad en donde haya un error, osea que su length !== 0
-      alert("Llene los campos correctamente");
+      Swal.fire("", "Llene los campos correctamente", "warning");
       return;
     } else {
       dispatch(postRecipe(input));
@@ -67,7 +68,7 @@ export default function CreateRecipe() {
         diets: [],
         steps: "",
       });
-      alert("receta creada con exito");
+      Swal.fire("", "Receta creada con exito!", "success");
       //history.push("/home");
     }
   }
