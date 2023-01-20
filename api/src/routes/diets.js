@@ -11,15 +11,15 @@ const getDiets = async () => {
       return findDiets;
     }
     const diets = [
-      "gluten free",
-      "paleolithic",
-      "ketogenic",
-      "lacto ovo vegetarian",
-      "vegan",
-      "pescatarian",
-      "primal",
-      "fodmap friendly",
-      "whole 30",
+     "gluten free" + " ",
+      "paleolithic" + " ",
+      "ketogenic" + " ",
+      "lacto ovo vegetarian" + " ",
+      "vegan" + " ",
+      "pescatarian" + " ",
+      "primal" + " ",
+      "fodmap friendly" + " ",
+      "whole 30" + " ",
     ];
     diets.forEach((e) => {
       Diets.findOrCreate({
