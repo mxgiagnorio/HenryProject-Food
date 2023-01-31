@@ -17,7 +17,7 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://henry-project-food-ew90p6v7e-mxgiagnorio.vercel.app"
+    "https://henry-project-food.vercel.app/"
   ); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
