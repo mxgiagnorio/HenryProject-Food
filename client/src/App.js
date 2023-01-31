@@ -4,7 +4,8 @@ import LandingPage from "./components/views/LandingPage";
 import Home from "./components/views/Home";
 import RecipeDetails from "./components/recipes/RecipeDetails";
 import CreateRecipe from "./components/create/CreateRecipe";
-
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3001/";
 function App() {
   return (
     <div>

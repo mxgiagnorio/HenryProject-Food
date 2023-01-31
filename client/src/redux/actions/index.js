@@ -12,7 +12,7 @@ export const GET_HEALTHSCORE_SORT = "GET_HEALTHSCORE_SORT";
 export const getAllRecipes = () => {
   return async function (dispatch) {
     try {
-      const Info = await axios.get("http://localhost:3001/api/recipes");
+      const Info = await axios.get("/api/recipes");
       return dispatch({ type: GET_ALL_RECIPES, payload: Info.data });
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ export const getAllRecipes = () => {
 export const getAllDiets = () => {
   return async function (dispatch) {
     try {
-      const info = await axios.get("http://localhost:3001/api/diets");
+      const info = await axios.get("/api/diets");
       return dispatch({ type: GET_ALL_DIETS, payload: info.data });
     } catch (error) {
       console.log(error);
@@ -34,10 +34,7 @@ export const getAllDiets = () => {
 export const postRecipe = (payload) => {
   return async function (dispatch) {
     try {
-      const Info = await axios.post(
-        "http://localhost:3001/api/recipes",
-        payload
-      );
+      const Info = await axios.post("/api/recipes", payload);
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +70,7 @@ export const sortFilter = (payload) => {
 export const getIdRecipe = (id) => {
   return async function (dispatch) {
     try {
-      const info = await axios.get(`http://localhost:3001/api/recipe/${id}`);
+      const info = await axios.get(`/api/recipe/${id}`);
 
       return dispatch({ type: GET_ID_RECIPE, payload: info.data });
     } catch (error) {
@@ -81,28 +78,6 @@ export const getIdRecipe = (id) => {
     }
   };
 };
-
-// export const getIdRecipe = (id) => {
-//   return async function (dispatch) {
-//     try {
-//       const info = await axios.get(`http://localhost:3001/api/recipe/${id}`);
-//       console.log(info.data);
-//       if (info.data.id.length > 9) {
-//         let recipes = info.data;
-//         recipes.diets = recipes.diets.map(({ name }) => name);
-//         console.log(recipes);
-//         return dispatch({
-//           type: GET_ID_RECIPE,
-//           payload: recipes,
-//         });
-//       } else {
-//         return dispatch({ type: GET_ID_RECIPE, payload: info.data });
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
 
 export const getRecipesNames = (name) => {
   return async function (dispatch) {
