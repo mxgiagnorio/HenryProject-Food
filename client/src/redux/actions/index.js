@@ -82,9 +82,7 @@ export const getIdRecipe = (id) => {
 export const getRecipesNames = (name) => {
   return async function (dispatch) {
     try {
-      const info = await axios.get(
-        `http://localhost:3001/api/recipes?name=${name}`
-      );
+      const info = await axios.get(`/api/recipes?name=${name}`);
       return dispatch({ type: GET_NAMES_RECIPES, payload: info.data });
     } catch (error) {
       console.log(error);
