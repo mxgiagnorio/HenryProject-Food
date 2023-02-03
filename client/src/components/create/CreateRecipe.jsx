@@ -16,7 +16,7 @@ function validate(input) {
   }
   if (!input.summary) {
     errors.summary = "La descripcion es requerida";
-  } else if (input.summary.length > 100) {
+  } else if (input.summary.length > 500) {
     errors.summary = "La descripcion es muy larga. (Max = 100 caracteres)";
   }
   if (!input.steps) {
