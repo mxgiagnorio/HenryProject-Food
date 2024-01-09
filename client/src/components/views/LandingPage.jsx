@@ -8,7 +8,7 @@ export default function landingPage() {
       <div className="background">
         <h3 className="title text-3xl font-bold underline">
           {" "}
-          H E N R Y F O O D S
+          RANDOM'S RECIPES
         </h3>
         <Link to="/Home">
           <button className="enter">Ingresar</button>
