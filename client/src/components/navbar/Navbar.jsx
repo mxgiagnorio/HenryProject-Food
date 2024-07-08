@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="navContainer w-full flex flex-col items-center md:flex-row md:justify-center mb-6 animate-appear">
         <Link to="/home">
           <h1 onClick={(e) => handleClick(e)} className="navTitle">
-            RANDOM´S RECIPES
+            RANDOM MEALS
           </h1>
         </Link>
         <SearchBar />
