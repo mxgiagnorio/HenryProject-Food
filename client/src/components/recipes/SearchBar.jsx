@@ -18,7 +18,6 @@ export default function SearchBar() {
   function handleChange(e) {
     e.preventDefault();
     setName(e.target.value);
-    console.log(name, "soy name");
   }
 
   function handleSubmit(e) {

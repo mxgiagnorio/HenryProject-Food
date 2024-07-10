@@ -23,12 +23,12 @@ const getApiInfo = async () => {
           name: diet,
         };
       }),
-      steps:
-        el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
-          ? el.analyzedInstructions[0].steps
-              .map((item) => item.step)
-              .join(" \n")
-          : "",
+      // steps:
+      //   el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
+      //     ? el.analyzedInstructions[0].steps
+      //         .map((item) => item.step)
+      //         .join(" \n")
+      //     : "",
     };
   });
   return response;
@@ -76,12 +76,12 @@ router.get("/", async (req, res) => {
             name: diet,
           };
         }),
-        steps:
-          el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
-            ? el.analyzedInstructions[0].steps
-                .map((item) => item.step)
-                .join(" \n")
-            : "",
+        // steps:
+        //   el.analyzedInstructions[0] && el.analyzedInstructions[0].steps
+        //     ? el.analyzedInstructions[0].steps
+        //         .map((item) => item.step)
+        //         .join(" \n")
+        //     : "",
       };
     });
     let getByNameDb = await Recipe.findAll({
@@ -112,7 +112,7 @@ router.post("/", async (req, res, next) => {
       image,
       healthScore,
       summary,
-      steps,
+      // steps,
     });
     //buscamos el tipo de dieta en la tabla de DB Diets que coincidan con el nombre especificado
     const dietsDb = await Diets.findAll({

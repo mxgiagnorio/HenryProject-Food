@@ -41,7 +41,6 @@ export default function RecipeDetails() {
         <p className="detailSummary">
           {detail.summary && detail.summary.replace(/<[^>]+>/g, "")}
         </p>
-        <div className="stepsDetail">{detail.steps}</div>
       </div>
     </div>
   );

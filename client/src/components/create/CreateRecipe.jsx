@@ -19,9 +19,9 @@ function validate(input) {
   } else if (input.summary.length > 500) {
     errors.summary = "La descripcion es muy larga. (Max = 100 caracteres)";
   }
-  if (!input.steps) {
-    errors.steps = "El paso a paso es requerido";
-  }
+  // if (!input.steps) {
+  //   errors.steps = "El paso a paso es requerido";
+  // }
 
   if (!input.healthScore) {
     errors.healthScore =
@@ -42,7 +42,7 @@ export default function CreateRecipe() {
     summary: "",
     healthScore: "",
     diets: [],
-    steps: "",
+    // steps: "",
   });
 
   const [errors, setErrors] = useState({}); //me creo un estado local, en donde errors = {}
@@ -66,7 +66,7 @@ export default function CreateRecipe() {
         summary: "",
         healthScore: "",
         diets: [],
-        steps: "",
+        // steps: "",
       });
       Swal.fire("", "Receta creada con exito!", "success");
       //history.push("/home");
@@ -156,7 +156,7 @@ export default function CreateRecipe() {
               <p className="error">{errors.healthScore}</p>
             )}
           </div>
-          <div className="info">
+          {/* <div className="info">
             <label className="steps">STEPS</label>
             <input
               type="text"
@@ -165,7 +165,7 @@ export default function CreateRecipe() {
               onChange={(e) => handleChange(e)}
             />
             {errors.steps && <p className="error">{errors.steps}</p>}
-          </div>
+          </div> */}
           <div className="info">
             <label>DIETS</label>
             <select onChange={(e) => handleSelect(e)}>

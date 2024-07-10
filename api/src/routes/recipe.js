@@ -22,13 +22,13 @@ router.get("/:idRecipe", async (req, res) => {
         summary: searchIdInApi.data.summary,
         types: searchIdInApi.data.dishTypes.join("-"),
         diets: searchIdInApi.data.diets,
-        steps:
-          searchIdInApi.data.analyzedInstructions[0] &&
-          searchIdInApi.data.analyzedInstructions[0].steps
-            ? searchIdInApi.data.analyzedInstructions[0].steps
-                .map((item) => item.step)
-                .join(" ")
-            : "",
+        // steps:
+        //   searchIdInApi.data.analyzedInstructions[0] &&
+        //   searchIdInApi.data.analyzedInstructions[0].steps
+        //     ? searchIdInApi.data.analyzedInstructions[0].steps
+        //         .map((item) => item.step)
+        //         .join(" ")
+        //     : "",
       };
       return res.status(200).send(response);
     }
