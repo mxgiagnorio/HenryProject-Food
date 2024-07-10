@@ -36,7 +36,7 @@ export default function SearchBar() {
         className="w-5/6 rounded-full h-full pl-4 border-2 outline-none"
         type="text"
         name="search"
-        placeholder="Send me a message"
+        placeholder="pizza"
         value={name}
         onChange={(e) => handleChange(e)}
       />
